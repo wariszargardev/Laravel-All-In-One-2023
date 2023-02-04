@@ -20,10 +20,10 @@ class DatasetController extends Controller
             $file_path = $file->getRealPath();
             $zip = new ZipArchive;
             if ($zip->open($file_path) === TRUE) {
-                $zip->extractTo(storage_path($path));
+                $zip->extractTo(public_path($path));
                 $zip->close();
-                $files = array_filter(scandir(storage_path($path)), function ($item) use ($path) {
-                    return !is_dir(storage_path($path) . '/' . $item);
+                $files = array_filter(scandir(public_path($path)), function ($item) use ($path) {
+                    return !is_dir(public_path($path) . '/' . $item);
                 });
                 return $files;
             } else {
@@ -35,10 +35,10 @@ class DatasetController extends Controller
     public function readFromStorage(Request $request){
         $finalData=array();
 
-        $encrypted_id= "OIpIZREiCAW6P6lALnF9LsBE6ntVlw6E";
+        $encrypted_id= "f487wNzUspkpXPKc1eKneFytDsnA3QC5";
 
-        $path= 'app/public/OIpIZREiCAW6P6lALnF9LsBE6ntVlw6E/dataset.csv';
-        $path= storage_path($path);
+        $path= 'app/public/f487wNzUspkpXPKc1eKneFytDsnA3QC5/dataset.csv';
+        $path= public_path($path);
         $data = array_map('str_getcsv', file($path));
 
         unset($data[0]);

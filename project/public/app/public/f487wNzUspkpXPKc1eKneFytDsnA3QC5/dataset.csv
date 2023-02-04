@@ -1,0 +1,19 @@
+,image_name,URL,ml_service_name,document_type,created_date,project,dataset_version,tag,laminated,background,card,handwritten,hologram,gender,device,onsite,training,device_model,angle,update_row
+0,Images/encid115_document_proof.jpeg,synthetic/encid115/document/proof.jpeg,synthetic,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,L,B,T,O,I,F,N,Y,None,,0,N
+1,Images/encid114_document_additional_proof.jpeg,sp/encid114/document/additional_proof.jpeg,fullsize,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,0,N
+2,Images/encid116_document_proof.jpeg,sp/encid116/document/proof.jpeg,fullsize,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,L,B,T,O,I,F,N,Y,None,,0,N
+3,Images/encid111_document_proof.jpeg,sp/encid111/document/proof.jpeg,fullsize,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,L,B,T,O,I,M,N,Y,None,,0,N
+4,Images/encid112_document_proof.jpeg,synthetic/encid112/document/proof.jpeg,synthetic,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,L,B,T,O,I,F,N,Y,None,,0,N
+5,Images/encid113_document_proof.jpeg,sp/encid113/document/proof.jpeg,fullsize,india_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,U,N,Y,None,,90,N
+6,Images/encid131_document_proof.jpeg,sp/encid131/document/proof.jpeg,fullsize,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,F,N,Y,None,,0,N
+7,Images/encid133_document_proof.jpeg,sp/encid133/document/proof.jpeg,fullsize,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,Yes,,0,N
+8,Images/encid132_document_two_proof.jpeg,sp/encid132/document_two/proof.jpeg,fullsize,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,F,N,Y,None,,0,N
+9,Images/encid134_document_proof.jpeg,synthetic/encid134/document/proof.jpeg,synthetic,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,0,N
+10,Images/encid135_document_proof.jpeg,sp/encid135/document/proof.jpeg,fullsize,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,U,N,Y,None,,0,N
+11,Images/encid136_document_proof.jpeg,sp/encid136/document/proof.jpeg,fullsize,pakistan_none_drivinglicense_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,180,N
+12,Images/encid123_document_proof.jpeg,sp/encid123/document/proof.jpeg,fullsize,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,F,N,Y,None,,0,N
+13,Images/encid122_document_proof.jpeg,sp/encid122/document/proof.jpeg,fullsize,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,0,N
+14,Images/encid126_document_proof.jpeg,synthetic/encid126/document/proof.jpeg,synthetic,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,0,N
+15,Images/encid127_document_proof.jpeg,sp/encid127/document/proof.jpeg,fullsize,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,None,,0,N
+16,Images/encid124_document_proof.jpeg,sp/encid124/document/proof.jpeg,fullsize,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,U,B,T,O,I,M,N,Y,Yes,,270,N
+17,Images/encid125_document_proof.jpeg,synthetic/encid125/document/proof.jpeg,synthetic,pakistan_none_idcard_design1,31 Jan 2023,dummy_dataset,v1,dummy,L,B,T,O,I,M,N,Y,None,,0,N

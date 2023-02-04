@@ -12,5 +12,9 @@ class DataSet extends Model
 
     protected $guarded= [];
 
+    protected $appends=['image'];
 
+    public function getImageAttribute(){
+        return asset('app/public/'.$this->encrypted_id.'/'.$this->image_name);
+    }
 }
