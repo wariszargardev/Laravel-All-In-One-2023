@@ -1,0 +1,118 @@
+version: '3.9'
+
+# Define network
+networks:
+  laravel-app-networks:
+    driver:
+      bridge
+
+services:
+  # Mysql DB Service
+  db:
+    image: mysql # For define specific version mysql:version
+    container_name: db # Container name
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+    volumes:
+      # Using any option for volume mounting mentioned below
+      - maria-db-data:/var/lib/mysql # This will store
+      # - ./docker/maria-db-data:/var/lib/mysql # this will store into root directory of mysql-data folder
+    networks:
+      - laravel-app-networks
+
+  # Phpmyadmin service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    #    platform: linux/amd64 If Mack book M2 then specify platform
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - laravel-app-networks
+
+  # Nginx Service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8200:80"
+    volumes:
+      - ./project:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - laravel-app-networks
+
+  # PHP Service
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    image: php
+    container_name: php
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html
+    volumes:
+      - ./project:/var/www/html
+    networks:
+      - laravel-app-networks
+
+  # Postgresql Service
+  postgres:
+    image: postgres:latest
+    container_name: postgresql
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgresql
+      POSTGRES_USER: postgresql
+      POSTGRES_DB: laravel
+      PGDATA: /var/lib/postgresql/data
+    networks:
+      - laravel-app-networks
+
+  # Redis service
+  redis:
+    image: redis
+    container_name: redis
+    expose:
+      - 6379
+    volumes:
+      - redis-date:/data
+    networks:
+      - laravel-app-networks
+
+  # SMTP Server
+  smtp:
+    platform: linux/amd64
+    image: mailhog/mailhog
+    container_name: mailhog
+    logging:
+      driver: 'none'
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - laravel-app-networks
+# Define Volume for mysql to persist the data
+volumes:
+  maria-db-data:
+  postgres-data:
+  redis-date:

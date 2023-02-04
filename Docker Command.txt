@@ -1,0 +1,73 @@
+Pull container from docker hub
+dokcer pull nginx
+dokcer pull nginx:version
+
+Start any specific container
+docker run nginx
+
+Start container on specific port 
+docker run -p (port visible or accessbile on browser: listen on port)80:80 nginx
+
+Start container in background
+docker run -p 80:80 -d nginx
+
+
+List of running container
+docker ps
+dokcer ps -a
+
+Remove docker container
+docker rm container_id
+
+Removing running container
+docker rm container_id -f
+
+Stop any container
+dokcer stop container_id
+
+Remove all container 
+docker ps -a -q | xargs docker rm -f 
+
+
+List of all images
+dokcer image ls
+
+pull image from dokcer hub
+docker image pull node 
+
+Woo image kia kia kr skta ha
+docker image inspect image_id
+
+Build project and . refere to Dockerfile path node-project refere to docker image name
+docker build -t node-project . 
+
+project run kra ga
+
+docker run -p 8000:8000 node-app
+
+docker container ls
+winpty docker exec -it container_id bash
+
+remove every thing caches
+
+docker system prune -a
+
+
+Stop all running containers: docker stop $(docker ps -a -q)
+Delete all stopped containers: docker rm $(docker ps -a -q)
+
+
+docker rmi -f $(docker images -aq)
+Removing All images
+
+
+
+Use this to delete everything:
+
+docker system prune -a --volumes
+
+
+$(pwd) => current directoty
+-v volume pa mount kra 
+current directy:/usr/share/nginx/html 
+docker run  -p 80:80 -v "$(pwd)/:/usr/share/nginx/html" nginx
