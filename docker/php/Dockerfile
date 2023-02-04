@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     libzip-dev
 
+RUN docker-php-ext-install zip
+
 # Install composer First Way
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

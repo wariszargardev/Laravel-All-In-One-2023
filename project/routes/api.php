@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('dataset')->group(function (){
+   Route::post('zip-extract', [\App\Http\Controllers\DatasetController::class, 'extractUploadedZip']);
+   Route::post('get-data', [\App\Http\Controllers\DatasetController::class, 'readFromStorage']);
+   Route::post('listing', [\App\Http\Controllers\DatasetController::class, 'recordListing']);
+});
