@@ -2,7 +2,7 @@ version: '3.9'
 
 # Define network
 networks:
-  laravel-app-networks:
+  laravel-vpn-app-networks:
     driver:
       bridge
 
@@ -23,7 +23,7 @@ services:
       - maria-db-data:/var/lib/mysql # This will store
       # - ./docker/maria-db-data:/var/lib/mysql # this will store into root directory of mysql-data folder
     networks:
-      - laravel-app-networks
+      - laravel-vpn-app-networks
 
   # Phpmyadmin service
   phpmyadmin:
@@ -38,7 +38,7 @@ services:
     depends_on:
       - db
     networks:
-      - laravel-app-networks
+      - laravel-vpn-app-networks
 
   # Nginx Service
   nginx:
@@ -52,7 +52,7 @@ services:
       - ./project:/var/www/html
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
-      - laravel-app-networks
+      - laravel-vpn-app-networks
 
   # PHP Service
   php:
@@ -70,47 +70,47 @@ services:
     volumes:
       - ./project:/var/www/html
     networks:
-      - laravel-app-networks
+      - laravel-vpn-app-networks
 
   # Postgresql Service
-  postgres:
-    image: postgres:latest
-    container_name: postgresql
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: postgresql
-      POSTGRES_USER: postgresql
-      POSTGRES_DB: laravel
-      PGDATA: /var/lib/postgresql/data
-    networks:
-      - laravel-app-networks
+#  postgres:
+#    image: postgres:latest
+#    container_name: postgresql
+#    volumes:
+#      - postgres-data:/var/lib/postgresql/data
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_PASSWORD: postgresql
+#      POSTGRES_USER: postgresql
+#      POSTGRES_DB: laravel
+#      PGDATA: /var/lib/postgresql/data
+#    networks:
+#      - laravel-vpn-app-networks
 
-  # Redis service
-  redis:
-    image: redis
-    container_name: redis
-    expose:
-      - 6379
-    volumes:
-      - redis-date:/data
-    networks:
-      - laravel-app-networks
+#  # Redis service
+#  redis:
+#    image: redis
+#    container_name: redis
+#    expose:
+#      - 6379
+#    volumes:
+#      - redis-date:/data
+#    networks:
+#      - laravel-vpn-app-networks
 
   # SMTP Server
-  smtp:
-    platform: linux/amd64
-    image: mailhog/mailhog
-    container_name: mailhog
-    logging:
-      driver: 'none'
-    ports:
-      - "1025:1025"
-      - "8025:8025"
-    networks:
-      - laravel-app-networks
+#  smtp:
+#    platform: linux/amd64
+#    image: mailhog/mailhog
+#    container_name: mailhog
+#    logging:
+#      driver: 'none'
+#    ports:
+#      - "1025:1025"
+#      - "8025:8025"
+#    networks:
+#      - laravel-vpn-app-networks
 # Define Volume for mysql to persist the data
 volumes:
   maria-db-data:

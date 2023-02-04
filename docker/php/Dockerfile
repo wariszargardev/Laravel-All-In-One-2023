@@ -11,10 +11,10 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN #pecl install mongodb apcu && docker-php-ext-enable mongodb apcu opcache
 
 # Install Postgre PDO
-RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
+RUN #apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
 # Install redis & enable extension
-RUN pecl install redis && docker-php-ext-enable redis
+RUN #pecl install redis && docker-php-ext-enable redis
 
 
 #Install dependencies
